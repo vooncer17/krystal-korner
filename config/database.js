@@ -4,6 +4,7 @@ mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true}).catch(functi
   console.log(err)
 })
 
+
 // shortcut to mongoose.connection object
 var db = mongoose.connection;
 
