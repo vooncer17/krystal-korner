@@ -5,15 +5,16 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var logger = require('morgan');
-
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var methodOverride = require('method-override')
 
 // load the env vars
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
 
 
 var app = express();
@@ -23,6 +24,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

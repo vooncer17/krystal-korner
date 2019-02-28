@@ -1,11 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport')
-var userCtrl = require('../controllers/users')
+var indexCtrl = require('../controllers/index')
 
-/* GET home page. */
-router.get('/', userCtrl.index)
+// Normal Routes
+router.get('/', indexCtrl.index)
+router.get('/mystical', indexCtrl.mystical)
+router.get('/new', indexCtrl.new)
+router.get('/gems/:id', indexCtrl.show)
 
+router.post('/new', indexCtrl.create)
+router.post('/', indexCtrl.search)
+router.post('/collection/:id', indexCtrl.addToCollection)
+
+
+
+// Oauth
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }

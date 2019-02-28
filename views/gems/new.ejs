@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gems</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="box-a">
+      <img id="titleimg" src="https://imgur.com/6tX08y3.png">
+      <% if (!user) { %>
+      <a href="/auth/google" id="user-login"> <span class="lnr lnr-users"></span> Login With Google</a>
+      <% } else { %>
+      <a href="/logout" id="user-logout"> <span class="lnr lnr-users"></span> Logout</a>
+      <% } %>
+    </div>
+    <div class="box-b">
+      <div class="box-b-wrapper">
+        <a href="/"><p class="box-b-text"><span class="lnr lnr-home"></span> Home </p></a>
+        <% if (user) { %>
+          <a href="/users/collection">
+            <p class="box-b-text"> <span class="lnr lnr-briefcase"></span> Collection</p>
+        <% } else { %>
+          <a href="/">
+            <p class="box-b-text"> <span class="lnr lnr-briefcase"></span> Collection</p>
+          </a>
+        <% } %>  
+        <a href="/mystical"><p class="box-b-text"> <span class="lnr lnr-magic-wand"></span> Feeling Mystical</p></a>
+        <a href="/new"><p class="box-b-text"> <span class="lnr lnr-plus-circle"></span> Create A Crystal</p></a>
+        <form action="/" method="POST">
+          <button type="submit"><span class="lnr lnr-diamond"></span></button>
+          <input type="text" name="search" placeholder="Cruise Gems">
+        </form>
+      </div>
+    </div>
+    <div class="box-create">
+      <div class="create1">
+        <div id="titlecard"><div id="titletext">Create Your Gem <span class="lnr lnr-magic-wand"></span> </div></div>
+        <div id="formfield">
+        <form id="new-form" action="/new" method="POST">
+          <label id="zodiac" class="inputfield">Zodiac:</label>
+          <select id="selectzodiac" name="Zodiac">
+            <option value="Pisces">Pisces</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Leo">Leo</option>
+            <option value="Libra">Libra</option>
+            <option value="Leo">Leo</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Aries">Aries</option>
+          </select>
+          <br>
+          <br>
+            <label class="inputfield">Name:</label>
+            <input type="text" name="Name">
+            <br>
+            <br>
+            <label class="inputfield">Chakras:</label>
+            <input type="text" name="Chakras">
+            <br>
+            <br>
+            <label class="inputfield">Locality:</label>
+            <input type="text" name="Locality">
+            <br>
+            <br>
+            <label class="inputfield">Qualities:</label>
+            <input type="text" name="Qualities">
+            <br>
+            <br>
+            <% if (user) { %>
+              <input id="addcrystal" class="inputfield" type="submit" value="Add Crystal">
+            <% } else { %>
+              <a href="/auth/google" id="user-login"> <span class="lnr lnr-users"></span> Login To Create Gem</a>
+            <% } %>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

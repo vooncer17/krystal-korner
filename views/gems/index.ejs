@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gems</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="box-a">
+      <img id="titleimg" src="https://imgur.com/6tX08y3.png">
+      <% if (!user) { %>
+      <a href="/auth/google" id="user-login"> <span class="lnr lnr-users"></span> Login With Google</a>
+      <% } else { %>
+      <a href="/logout" id="user-logout"> <span class="lnr lnr-users"></span> Logout</a>
+      <% } %>
+    </div>
+    <div class="box-b">
+      <div class="box-b-wrapper">
+        <a href="/">
+          <p class="box-b-text"><span class="lnr lnr-home"></span> Home </p>
+        </a>
+        <% if (user) { %>
+        <a href="/users/collection">
+          <p class="box-b-text"> <span class="lnr lnr-briefcase"></span> Collection</p>
+        <% } else { %>
+        <a href="/">
+          <p class="box-b-text"> <span class="lnr lnr-briefcase"></span> Collection</p>
+        </a>
+        <% } %>
+        <a href="/mystical">
+          <p class="box-b-text"> <span class="lnr lnr-magic-wand"></span> Feeling Mystical</p>
+        </a>
+        <a href="/new">
+          <p class="box-b-text"> <span class="lnr lnr-plus-circle"></span> Create A Crystal</p>
+        </a>
+        <form action="/" method="POST">
+          <button type="submit"><span class="lnr lnr-diamond"></span></button>
+          <input type="text" name="search" placeholder="Cruise Gems">
+        </form>
+      </div>
+    </div>
+    <div class="box-c">
+      <% gems.forEach(function(m) { %>
+      <div class="d1">
+
+        <tr class="gemtitle"><a class="gemtitle"href="/gems/<%= m._id %>"><%= m.Name %></a></tr>
+        <tr class="imgs"><img src="<%= m.IMG %>" alt=""> </tr>
+        <tr>Zodiac: <%= m.Zodiac %> </tr>
+        <% if( user && (user.gems.indexOf(m._id) === -1)){ %>
+        <form id="like" action="/collection/<%= m._id %>" method="POST">
+            <button id="likesubmit" type="submit"><span id="heart" class="lnr lnr-heart"></span></button>
+        </form>
+        <% } else { %>
+          
+        <% } %>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</body>
+
+</html>
