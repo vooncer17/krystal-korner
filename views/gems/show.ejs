@@ -33,19 +33,19 @@
         <a href="/mystical"><p class="box-b-text"> <span class="lnr lnr-magic-wand"></span> Feeling Mystical</p></a>
         <a href="/new"><p class="box-b-text"> <span class="lnr lnr-plus-circle"></span> Create A Crystal</p></a>
         <form action="/" method="POST">
-          <button type="submit"><span class="lnr lnr-diamond"></span></button>
+          <button type="submit"><span id="diamond" class="lnr lnr-diamond"></span></button>
           <input type="text" name="search" placeholder="Cruise Gems">
         </form>
       </div>
     </div>
     <div class="box-create">
-        <div class="create1">
+        <div class="show1">
           <div id="titlecard"><div id="titletext"> <%= gem.Name %> <span class="lnr lnr-diamond"></span> </div></div>
               <div class="gemdescrip"><img src="<%=gem.IMG%>"></div>
-              <div class="gemdescrip">Zodiac: <%=gem.Zodiac%></div>
-              <div class="gemdescrip">Locality: <%=gem.Locality%></div>
-              <div class="gemdescrip">Chakras: <%=gem.Chakras%></div>
-              <div class="gemdescrip">Qualities: <%=gem.Qualities%></div>
+              <div class="gemdescrip"><b>Zodiac:</b> <%=gem.Zodiac%></div>
+              <div class="gemdescrip"><b>Locality:</b> <%=gem.Locality%></div>
+              <div class="gemdescrip"><b>Chakras:</b> <%=gem.Chakras%></div>
+              <div class="gemdescrip"><b>Qualities:</b> <%=gem.Qualities%></div>
           </div>
         </div>
       </div>

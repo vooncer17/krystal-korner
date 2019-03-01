@@ -1,4 +1,6 @@
+require('dotenv').config()
 require('./config/database');
+
 const Gem = require('./models/gem')
 const data = require('./data')
 

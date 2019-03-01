@@ -193,7 +193,7 @@ exports.gems = [ {
     Name: "Azurite",
     Qualities: "Insight, Intuition, Inner Vision",
     Formula: "Cu3(CO3)2(OH)2",
-    Hardness: "4",
+    Hardness: 4,
     Chakras: "Third Eye (6th), Crown (7th)",
     Zodiac: "Sagittarius",
     Locality: "Australia, China, Chile, Russia and USA",
